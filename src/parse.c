@@ -3,7 +3,6 @@
 
 #include <arpa/inet.h>
 #include <fcntl.h>
-#include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -77,7 +76,8 @@ int validate_db_header(int fd, struct dbheader_t **headerOut) {
   return STATUS_SUCCESS;
 }
 
-void output_file(int fd, struct dbheader_t *dbhdr) {
+void output_file(int fd, struct dbheader_t *dbhdr,
+                 struct employee_t *employees) {
   if (fd < 0) {
     printf("Got a bad FD from the user\n");
   }

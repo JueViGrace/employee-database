@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int create_db_header(int fd, struct dbheader_t **headerOut) {
+int create_db_header(struct dbheader_t **headerOut) {
   struct dbheader_t *header = calloc(1, sizeof(struct dbheader_t));
   if (header == NULL) {
     printf("Malloc failed to create db header\n");
@@ -75,11 +75,6 @@ int validate_db_header(int fd, struct dbheader_t **headerOut) {
   *headerOut = header;
 
   return STATUS_SUCCESS;
-}
-
-int read_employees(int fd, struct dbheader_t *,
-                   struct employee_t **employeesOut) {
-  return 0;
 }
 
 void output_file(int fd, struct dbheader_t *dbhdr) {

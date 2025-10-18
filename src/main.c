@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/common.h"
-#include "../include/file.h"
-#include "../include/parse.h"
+#include "common.h"
+#include "file.h"
+#include "parse.h"
 
 void print_usage(char *argv[]) {
   printf("Usage: %s -n -f <database file>\n", argv[0]);
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
       return -1;
     }
 
-    if (create_db_header(&dbhdr) == STATUS_ERROR) {
+    if (create_db_header(dbfd, &dbhdr) == STATUS_ERROR) {
       printf("Failed to create database header\n");
       return -1;
     }

@@ -87,8 +87,6 @@ void output_file(int fd, struct dbheader_t *dbhdr,
   dbhdr->count = htons(dbhdr->filesize);
   dbhdr->version = htons(dbhdr->version);
 
-  printf("%d", employees->hours);
-
   lseek(fd, 0, SEEK_SET);
   write(fd, dbhdr, sizeof(struct dbheader_t));
 

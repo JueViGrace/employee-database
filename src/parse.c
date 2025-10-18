@@ -6,8 +6,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "common.h"
-#include "parse.h"
+#include "../include/common.h"
+#include "../include/parse.h"
 
 int output_file(int fd, struct dbheader_t *dbhdr,
                 struct employee_t *employees) {
@@ -82,6 +82,8 @@ int validate_db_header(int fd, struct dbheader_t **headerOut) {
   }
 
   *headerOut = header;
+
+  return STATUS_SUCCESS;
 }
 
 int create_db_header(int fd, struct dbheader_t **headerOut) {

@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "../include/common.h"
 #include "../include/file.h"
@@ -66,6 +67,11 @@ int main(int argc, char *argv[]) {
       printf("Failed to validate database header\n");
       return -1;
     }
+  }
+
+  if (dbhdr == NULL) {
+    printf("Database header is null\n");
+    return -1;
   }
 
   struct employee_t *employees = NULL;

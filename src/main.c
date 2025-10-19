@@ -85,7 +85,10 @@ int main(int argc, char *argv[]) {
   }
 
   if (addstring) {
-    add_employee(dbhdr, &employees, addstring);
+    if (add_employee(dbhdr, &employees, addstring) != STATUS_SUCCESS) {
+      printf("Failed to read employees\n");
+      return 0;
+    }
   }
 
   if (list) {

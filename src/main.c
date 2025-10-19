@@ -81,10 +81,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (addstring) {
-    if (add_employee(dbhdr, &employees, addstring) != STATUS_SUCCESS) {
-      printf("Failed to add employees\n");
-      return 0;
-    }
+    add_employee(dbhdr, &employees, addstring);
   }
 
   output_file(dbfd, dbhdr, employees);

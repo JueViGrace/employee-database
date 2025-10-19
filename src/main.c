@@ -92,7 +92,10 @@ int main(int argc, char *argv[]) {
   }
 
   if (list) {
-    list_employees(dbhdr, employees);
+    if (list_employees(dbhdr, employees) != STATUS_SUCCESS) {
+      printf("Failed to read employees\n");
+      return 0;
+    }
   }
 
   output_file(dbfd, dbhdr, employees);
